@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Войти | FakeBook</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page-shared">
+
+    <div class="auth-card-shared">
+        <h2>Войти на FakeBook</h2>
+        <p class="auth-subtitle">Введите свои данные для авторизации</p>
+
+        <form class="form-In" id="loginForm">
+            <div class="auth-field-shared">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" class="auth-input-shared" placeholder="your@email.com" required>
+            </div>
+
+            <div class="auth-field-shared">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" class="auth-input-shared" placeholder="Введите пароль" required>
+            </div>
+
+            <button type="submit" class="auth-btn-primary">Войти в аккаунт</button>
+            
+            <a href="password-recovery.html" style="display: block; text-align: center; margin-top: 16px; text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 500;">Забыли пароль?</a>
+
+            <div id="msg"></div>
+
+            <p class="switch-link">Ещё нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

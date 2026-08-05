@@ -1,0 +1,471 @@
+/* ==========================================================================
+   ОБЩИЕ СТИЛИ И ПЕРЕМЕННЫЕ
+   ========================================================================== */
+:root {
+    --primary: #6366f1;         /* Современный индиго */
+    --primary-hover: #4f46e5;
+    --accent: #d946ef;          /* Неоновый розовый для акцентов */
+    --bg-main: #f8fafc;         /* Очень мягкий светлый фон */
+    --text-dark: #0f172a;       /* Глубокий темный для хорошей читаемости */
+    --text-muted: #64748b;      /* Серый для второстепенного текста */
+    --border: #e2e8f0;          /* Тонкие аккуратные границы */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Общий красивый фон для страниц авторизации, профиля и оценки */
+.auth-page-shared, .page-profil, .Ocenka {
+    min-height: 100vh;
+    background: radial-gradient(circle at 10% 20%, rgba(243, 244, 255, 1) 0%, rgba(255, 241, 249, 1) 90%) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Общая карточка-контейнер */
+.auth-card-shared, .profile, .Ocenka .container {
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    padding: 40px 32px;
+    width: 360px;
+    box-shadow: var(--shadow-lg);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Заголовки на страницах-карточках */
+.auth-card-shared h2, .profile h2, .Ocenka h2 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.auth-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-field-shared {
+    margin-bottom: 20px;
+}
+
+.auth-field-shared label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.auth-input-shared {
+    width: 100%;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f8fafc;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+
+.auth-input-shared:focus {
+    border-color: var(--primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+/* Основная кнопка */
+.auth-btn-primary {
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    padding: 14px;
+    margin-top: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    transition: all 0.2s ease;
+}
+
+.auth-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+}
+
+.switch-link {
+    margin-top: 24px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.switch-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-link a:hover {
+    text-decoration: underline;
+}
+
+#msg {
+    margin-top: 16px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   PROFILE - Профиль пользователя (profile.html)
+   ========================================================================== */
+
+/* Круглая аватарка с инициалами */
+.profile .avatar {
+    width: 96px;
+    height: 96px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    letter-spacing: 1px;
+}
+
+/* Описание профиля (Био) */
+.profile .bio {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+    min-height: 21px;
+}
+
+.profile .bio-input {
+    width: 100%;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 10px 14px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: inherit;
+}
+
+.profile .bio-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+/* Блок статистики (Посты, Подписчики) */
+.profile .stats {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    margin-bottom: 28px;
+}
+
+.profile .stats div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .stats strong {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.profile .stats span {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* Кнопки действий */
+.profile .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile .actions button {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* Кнопка "Изменить описание" */
+.profile .actions .follow {
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.profile .actions .follow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+/* Кнопка "Выйти" */
+.profile .actions .msg {
+    background-color: #f1f5f9;
+    color: #ef4444;
+}
+
+.profile .actions .msg:hover {
+    background-color: #fee2e2;
+}
+
+/* ==========================================================================
+   RATING - Оценка сайта (rating.html)
+   ========================================================================== */
+.Ocenka h2 {
+    margin-bottom: 20px;
+}
+
+/* Контейнер со звездами */
+.Ocenka .stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+/* Стилизация звездочек */
+.Ocenka .stars span {
+    font-size: 46px;
+    color: #cbd5e1; /* Изначально серые неактивные звезды */
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.Ocenka .stars span:hover {
+    transform: scale(1.2);
+}
+
+/* Класс зажигания звезды золотом (добавляется через JS) */
+.Ocenka .stars span.active {
+    color: #f59e0b !important;
+    text-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+/* Текст результата */
+.Ocenka .result {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background-color: #f8fafc;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   FAKEBOOK - Главная страница (index.html)
+   ========================================================================== */
+.page-fakebook {
+    box-sizing: border-box;
+    margin: 0;
+    background: var(--bg-main);
+    color: var(--text-dark);
+    display: block; /* Сброс флексбокса для главной */
+    min-height: auto;
+    padding: 0;
+}
+
+.page-fakebook .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.page-fakebook .logo {
+    font-size: 22px; 
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.page-fakebook .main-nav {
+    display: flex;
+    gap: 28px;
+}
+
+.page-fakebook .main-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.page-fakebook .main-nav a:hover {
+    color: var(--primary);
+}
+
+.page-fakebook .page {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.page-fakebook .hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
+    color: #fff;
+    padding: 56px 40px;
+    border-radius: 20px;
+    text-align: left;
+    margin-bottom: 32px;
+    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.3);
+}
+
+.page-fakebook .hero h1 {
+    margin: 0 0 12px;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.page-fakebook .hero p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.page-fakebook .content-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 32px;
+}
+
+@media (max-width: 768px) { 
+    .page-fakebook .content-row { grid-template-columns: 1fr; }
+    .page-fakebook .site-header { padding: 16px 20px; }
+}
+
+.page-fakebook .post {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.page-fakebook .post:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.page-fakebook .post h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.page-fakebook .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+    text-align: left;
+}
+
+.page-fakebook .post p:last-child {
+    margin: 0;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.page-fakebook .sidebar {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    height: fit-content;
+    text-align: left;
+}
+
+.page-fakebook .sidebar h3 {
+    margin: 0 0 16px;
+    font-size: 15px;color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+.page-fakebook .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.page-fakebook .sidebar li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+}
+
+.page-fakebook .ad {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #92400e;
+}
+
+.page-fakebook .site-footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 64px;}

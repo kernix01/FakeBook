@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | FakeBook</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Защита страницы: если юзер не вошел, кидаем на регистрацию
+        if (!localStorage.getItem('currentUser')) {
+            window.location.replace('register.html');
+        }
+    </script>
+</head>
+<body class="page-fakebook">
+
+    <!-- HEADER - Шапка сайта -->
+    <header class="site-header">
+        <div class="logo">FakeBook</div>
+        <nav class="main-nav">
+            <a href="register.html">Регистрация</a>
+            <a href="login.html">Войти</a>
+            <a href="about-us.html">О нас</a>
+            <a href="profile.html">Профиль</a>
+            <a href="rating.html">Оценка сайта</a>
+        </nav>
+    </header>
+
+    <!-- MAIN - Контент -->
+    <main class="page">
+        <section class="hero">
+            <h1>Добро пожаловать!</h1>
+            <p>Мой первый масштабный проект, объединяющий множество страниц в одну экосистему. Вау!</p>
+        </section>
+
+        <div class="content-row">
+            <!-- Левая колонка -->
+            <section class="articles">
+                <h2>Последние новости</h2>
+
+                <article class="post">
+                    <h3>Масштабный редизайн</h3>
+                    <p class="meta">📅 2 мая · ✍️ sweety</p>
+                    <p>FakeBook переходит на более «чистый», минималистичный и профессиональный вид.</p>
+                </article>
+
+                <article class="post">
+                    <h3>Новый редактор постов</h3>
+                    <p class="meta">📅 2 мая · ✍️ sweety</p>
+                    <p>Пользовательский интерфейс для создания публикаций стал гораздо проще и современнее.</p>
+                </article>
+
+                <article class="post">
+                    <h3>Никнеймы в группах</h3>
+                    <p class="meta">📅 2 мая · ✍️ sweety</p>
+                    <p>Теперь в сообществах можно публиковать посты под никнеймом, не раскрывая своё полное имя.</p>
+                </article>
+            </section>
+
+            <!-- Правая колонка -->
+            <aside class="sidebar">
+                <h3>Категории</h3>
+                <ul>
+                    <li>AI-персонализация рекламы</li>
+                    <li>Приоритет «оригинальности»</li>
+                    <li>ИИ-коллажи</li>
+                </ul>
+                
+                <h3>Реклама</h3>
+                <p class="ad"><strong>Professional Mode:</strong> FakeBook активно помогает обычным пользователям переключать свои профили в профессиональный режим.</p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER - Подвал -->
+    <footer class="site-footer">
+        <p>© 2026 FakeBook · Все права защищены</p>
+        <p class="Contacts">📧 fakebook@gmail.com · 📱 +7 (777) 777-77-77</p>
+    </footer>
+
+</body>
+</html>
